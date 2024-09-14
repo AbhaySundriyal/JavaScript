@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> HTML EVENTS</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="one" src="https://blog.hyperiondev.com/wp-content/uploads/2020/09/coders-who-changed-the-world.png" alt=""></li>
+            <li><img width="200px" id="two" src="https://blog.hyperiondev.com/wp-content/uploads/2020/09/coders-who-changed-the-world.png" alt=""></li>
+            <li><img width="200px" id="three" src="https://blog.hyperiondev.com/wp-content/uploads/2020/09/coders-who-changed-the-world.png" alt=""></li>
+            <li><img width="200px" id="four" src="https://blog.hyperiondev.com/wp-content/uploads/2020/09/coders-who-changed-the-world.png" alt=""></li>
+            <li><img width="200px" id="five" src="https://blog.hyperiondev.com/wp-content/uploads/2020/09/coders-who-changed-the-world.png" alt=""></li>
+            <li><img width="200px" id="six" src="https://blog.hyperiondev.com/wp-content/uploads/2020/09/coders-who-changed-the-world.png" alt=""></li>
+            <li><img width="200px" id="seven" src="https://blog.hyperiondev.com/wp-content/uploads/2020/09/coders-who-changed-the-world.png" alt=""></li>
+            <li><img width="200px" id="eight" src="https://blog.hyperiondev.com/wp-content/uploads/2020/09/coders-who-changed-the-world.png" alt="" onclick="alert('why you press that button')"></li>
+            <li> <a href="https://www.google.com/search?q=google&rlz=1C1CHZN_enIN1033IN1033&oq=google&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIYCAEQLhhDGIMBGMcBGLEDGNEDGIAEGIoFMg8IAhAAGEMYsQMYgAQYigUyEggDEAAYQxiDARixAxiABBiKBTIPCAQQABhDGLEDGIAEGIoFMhIIBRAAGEMYgwEYsQMYgAQYigUyDwgGEAAYQxixAxiABBiKBTISCAcQABhDGIMBGLEDGIAEGIoFMgcICBAAGI8CMgcICRAAGI8C0gEJNTQ4NGowajE1qAIIsAIB&sourceid=chrome&ie=UTF-8" id="google"> google</a></li>
+        </ul>
+    </div>
+    <script>
+       /* document.getElementById('five').onclick() = function(){
+            alert("why you clicked this")
+        }
+        document.getElementById('seven').addEventListener('click',function(e){
+            console.log(e);
+        })
+        // type , timestamp , defaultprevented , target  ,toElement , SourceElement , currenttarget
+        // Clientx , Client y , screen x , screen y .
+        // altkey , ctrlkey , shiftkey , keycode 
+        
+        document.getElementById('images').addEventListener('click',function(e){
+            console.log('images ul is clicked');
+            
+        },false)
+
+        document.getElementById('three').addEventListener('click',function(e){
+            console.log('third image is clicked');
+            e.stopPropagation();
+        },false) // if we write false then it will print third image clicked after print image ul is clicked but if we write true it will print image ul after thied image is clicked  . writing the stop propagation iw will only print third image is clicked. 
+
+        document.getElementById('google').addEventListener('click',function (e){
+            e.preventDefault();
+            e.stopPropagation();
+            console.log("google clicked");
+          },false) */
+
+          document.querySelector('#images').addEventListener('click',function(e){
+            console.log(e.target.parentNode);
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+            // removeIt.parentNode.removeChild(removeIt)
+            if (e.target.tagName==='IMG') {
+                let removeIt = e.target.parentNode
+                removeIt.remove()
+            }            
+          },false)
+    </script>
+</body>
+</html>

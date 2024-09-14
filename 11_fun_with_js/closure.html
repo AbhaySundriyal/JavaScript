@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLOSURE</title>
+</head>
+<body>
+    <button id="orange">orange</button>
+    <button id="red">red</button>
+</body>
+<script>
+    // ***************** LEXICAL SCOPING **************************
+    function init(){
+        let name = "Mozilla";
+        function displayname(){
+            console.log(name);
+        }
+        displayname();
+    }
+    init();
+
+
+    function outer(){
+        let username = 'abhay';
+        function inner(){
+            console.log("Inner :",username);
+        }
+        function innertwo(){
+            console.log(username);
+        }
+        inner()
+        innertwo()
+    }
+    outer()
+    console.log("Outer",username);
+
+    // ************** CLOSURE **********************
+    
+    function makefunc(){
+        const name = "Mozilla";
+        function displaynametwo(){
+            console.log(name);
+        }
+        return displaynametwo;
+    }
+    const myfunc = makefunc();
+    myfunc();
+
+
+</script>
+<script>
+    
+    /*document.getElementById('orange').onclick = function(){
+        document.body.style.backgroundColor = 'orange'
+    }
+    
+    document.getElementById('red').onclick = function(){
+        document.body.style.backgroundColor = 'red'
+    }*/
+
+    function clickhandler(color){
+        //document.body.style.backgroundColor = '${color}'
+
+        return function(){
+            document.body.style.backgroundColor = '${color}'
+        }
+    }
+    document.getElementById('orange').onclick = clickhandler('orange');
+    document.getElementById('red').onclick = clickhandler('red');
+</script>
+</html>

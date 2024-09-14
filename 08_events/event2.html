@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>SYNCHRONOUS PROJECT 1</h1>
+    <button id="stop">stop</button>
+</body>
+<script>
+    setTimeout(function () {  
+        console.log("hello Abhay Sundriyal");
+        
+    },3000)
+    const hello = function () {
+        console.log("hello abhay Sundriyal");
+      }
+      setTimeout(hello,4000)
+      const changetext = function () {
+        document.querySelector('h1').innerHTML="Asynchronous Practice text"
+        }
+         const stop = setTimeout(changetext,4000)
+         document.querySelector('#stop').addEventListener('click',function () { 
+            clearTimeout(stop);
+            console.log("STOPPED");
+            
+           })
+</script>
+</html>
